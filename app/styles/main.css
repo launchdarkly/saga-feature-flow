@@ -1,0 +1,26 @@
+/* Do not write any CSS in here, add it to the appropriate module or make a new one and import it here. */
+
+@charset 'UTF-8';
+
+/* 1. Vendors */
+@import 'vendor/_normalize.css';
+
+/* 2. Configuration and helpers */
+@import 'utils/_variables.css';
+@import 'base/_helpers.css';
+
+/* 3. Base stuff */
+@import 'base/_base.css';
+@import 'base/_typography.css';
+
+/* 4. Layout-related sections */
+@import 'layout/_header.css';
+@import 'layout/_footer.css';
+
+/* 5. Components */
+@import 'components/_buttons.css';
+@import 'components/_home.css';
+@import 'components/_form-page.css';
+@import 'components/_form.css';
+@import 'components/_nav.css';
+@import 'components/_loading-indicator.css';

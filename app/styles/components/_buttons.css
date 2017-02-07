@@ -1,0 +1,26 @@
+/* This file contains all styles related to the button component. */
+
+.btn {
+  padding: 0.5em 1.5em;
+  color: '#6CC0E5';
+  border: 1px solid $brand-color;
+  border-radius: 3px;
+  text-decoration: none;
+  user-select: none;
+  display: inline-block;
+  background-color: $background-color;
+}
+
+.btn:hover {
+  color: white;
+  background-color: $brand-color;
+}
+
+.btn + .btn {
+  margin-left: 1em;
+}
+
+.btn--loading {
+  color: white;
+  background-color: $brand-color;
+}
