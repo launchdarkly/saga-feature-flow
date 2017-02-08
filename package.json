@@ -8,7 +8,7 @@
     "test": "standard | snazzy --verbose && NODE_ENV=test ava --verbose"
   },
   "author": "LaunchDarkly <team@launchdarkly.com>",
-  "repository": "atrakh/saga-feature-flow",
+  "repository": "launchdarkly/saga-feature-flow",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.6.1",
