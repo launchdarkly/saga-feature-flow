@@ -8,7 +8,8 @@ import {
   SENDING_REQUEST,
   REQUEST_ERROR,
   CLEAR_ERROR,
-  LD_INIT
+  LD_INIT,
+  LD_REFRESH_HEADER
 } from '../actions/constants'
 import auth from '../auth'
 
@@ -26,6 +27,8 @@ let initialState = {
 // Takes care of changing the application state
 function reducer (state = initialState, action) {
   switch (action.type) {
+    case LD_REFRESH_HEADER:
+      return {...state, flag: action.flag, headerColor: action.headerColor}
     case LD_INIT:
       return {...state, ld: action.ld, flag: action.flag, headerColor: action.headerColor}
     case CHANGE_FORM:

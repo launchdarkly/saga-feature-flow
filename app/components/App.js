@@ -9,6 +9,11 @@ class App extends Component {
   }
   
   render () {
+    if(this.props.data.ld != undefined) {
+      this.props.data.ld.on('change', function(settings) {
+        console.log("Flags updated")
+      })
+    }
     return (
       <div className='wrapper'>
         <Nav loggedIn={this.props.data.loggedIn}
@@ -22,6 +27,8 @@ class App extends Component {
     )
   }
 }
+
+
 
 App.propTypes = {
   data: React.PropTypes.object,

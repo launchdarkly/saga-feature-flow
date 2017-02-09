@@ -2,19 +2,20 @@ import React, {Component} from 'react'
 import LoadingButton from './LoadingButton'
 import {Link} from 'react-router'
 
-import {logout, clearError} from '../../actions'
+import {logout, clearError, ldUpdateFlags} from '../../actions'
 
 class Nav extends Component {
   constructor (props) {
     super(props)
     this._logout = this._logout.bind(this)
     this._clearError = this._clearError.bind(this)
+    this._getFlags = this._getFlags.bind(this)
   }
 
   render () {
     let navButtons = this.props.loggedIn ? (
       <div>
-        <Link to='/' className='btn btn--dash btn--nav'>Home</Link>
+        <Link to='/' className='btn btn--dash btn--nav' onClick={this._getFlags}>Home</Link>
         {this.props.currentlySending ? (
           <LoadingButton className='btn--nav' />
         ) : (
@@ -23,7 +24,7 @@ class Nav extends Component {
       </div>
     ) : (
       <div>
-        <Link to='/' className='btn btn--dash btn--nav'>Home</Link>
+        <Link to='/' className='btn btn--dash btn--nav' onClick={this._getFlags}>Home</Link>
         <Link to='/register' className='btn btn--login btn--nav' onClick={this._clearError}>Register</Link>
         <Link to='/login' className='btn btn--login btn--nav' onClick={this._clearError}>Login</Link>
       </div>
@@ -39,6 +40,10 @@ class Nav extends Component {
         </div>
       </div>
     )
+  }
+
+  _getFlags () {
+    this.props.dispatch(ldUpdateFlags())
   }
 
   _logout () {

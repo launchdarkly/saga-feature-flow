@@ -22,10 +22,20 @@ import {
   CHANGE_FORM,
   REQUEST_ERROR,
   LD_INIT_REQUEST,
-  LD_INIT
+  LD_INIT,
+  LD_FLAG_REQUEST,
+  LD_REFRESH_HEADER
 } from '../actions/constants'
 
 var ld
+
+export function * watchFlagUpdate () {
+  while (true) {
+    yield take(LD_FLAG_REQUEST)
+    let flags = ld.allFlags()  
+    yield put({type:LD_REFRESH_HEADER, flag: flags['user-type'], headerColor: flags['header-bar-color']})
+  }
+}
 
 function idLD (user) {
   var ldPromise = Promise.promisify(ld.identify)
@@ -200,6 +210,7 @@ export function * registerFlow () {
 // in the background, watching actions dispatched to the store.
 export default function * root () {
   yield fork(watchInitLD)
+  yield fork(watchFlagUpdate)
   yield fork(loginFlow)
   yield fork(logoutFlow)
   yield fork(registerFlow)

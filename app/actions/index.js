@@ -12,7 +12,8 @@ import {
   LOGOUT,
   REQUEST_ERROR,
   CLEAR_ERROR,
-  LD_INIT_REQUEST
+  LD_INIT_REQUEST,
+  LD_FLAG_REQUEST
 } from './constants'
 
 /**
@@ -88,4 +89,8 @@ export function requestError (error) {
  */
 export function clearError () {
   return {type: CLEAR_ERROR}
+}
+
+export function ldUpdateFlags () {
+  return {type: LD_FLAG_REQUEST}
 }
