@@ -56,7 +56,7 @@ function getLD () {
  */
 export function * initLD () {
   let user = {key:Math.random().toString(36).substring(7), anonymous:true}
-  ld = ldClient.initialize('YOUR-ENVIRONMENT-ID', user)
+  ld = ldClient.initialize('5f41df0e46a5d909152d7ef6', user)
   let flags = yield call(getLD, user)
   yield put({type: LD_INIT, ld: ld, flag: flags['user-type'], headerColor: flags['header-bar-color']})
 }

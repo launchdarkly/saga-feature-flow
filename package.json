@@ -66,5 +66,8 @@
     "require": [
       "babel-register"
     ]
+  },
+  "resolutions": {
+    "ua-parser-js": "^0.7.30"
   }
 }
